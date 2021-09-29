@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ABCD_OnlineMall.Models.Movie>
+
+@{
+    ViewData["Title"] = "IndexClient";
+}
+
+@{
+    Layout = "~/Views/Shared/_cinemas.cshtml";
+}
+
+<!--end slider -->
+<!-- Main content -->
+<section class="container">
+
+
+    <!--phim dang chiêu-->
+    <div class="clearfix"></div>
+
+    <div>
+        <h2 id='target' class="page-heading heading--outcontainer">
+            Now in the cinema
+        </h2>
+
+    </div>
+    <div class="col-sm-12" style="margin:auto">
+
+
+        @foreach (var item in Model)
+        {<div class="col-sm-4">
+
+                <div class="movie movie--test movie--test--dark movie--test--left" style="width:360px;height:300px; padding:2px">
+
+                    <div class="movie__images">
+                        <a class="movie-beta__link" asp-action="Details" asp-route-id="@item.MovieId">
+                            <img alt='' src="~/@item.ImageName" width="212px" height="290px">
+                        </a>
+                    </div>
+
+                    <div class="movie__info">
+                        <a class="movie__title" asp-action="Details" asp-route-id="@item.MovieId">@Html.DisplayFor(modelItem => item.Title) </a>
+
+                        <p class="movie__time">@Html.DisplayFor(modelItem => item.Duration)</p>
+
+                        <p class="">
+                            <span>Director: </span>
+                            @Html.DisplayFor(modelItem => item.Director)
+                        </p>
+                        <p class="">
+                            <span>Cast: </span>
+                            @Html.DisplayFor(modelItem => item.Cast)
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        }
+    </div>
+
+
+</section>

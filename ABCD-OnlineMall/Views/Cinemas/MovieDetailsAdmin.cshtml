@@ -1,0 +1,191 @@
+﻿@model ABCD_OnlineMall.Models.Movie
+
+@{
+    ViewData["Title"] = "MovieDetailsAdmin";
+    Layout = "~/Views/Shared/_AdminIndex.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Detail Movie</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Detail Store</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Title)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Director)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Cast)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Description)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Duration)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Trailer)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Price)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ImageName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Cinema)
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Title)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Director)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Cast)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Description)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Duration)
+                                        </td>
+                                        <td>
+                                            <a href="@Html.DisplayFor(model => model.Trailer)" target="_blank">
+                                                @Html.DisplayFor(model => model.Trailer)
+                                            </a>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Price)
+                                        </td>
+                                        <td style="max-width: 100px">
+                                            @Html.DisplayFor(model => model.ImageName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Cinema.CinemaId)
+                                        </td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <a asp-action="Edit" asp-route-id="@Model.MovieId">
+                <div type="button" class="btn btn-primary">Edit Movies</div>
+            </a>
+            @*<a asp-action="Delete" asp-route-id="@Model.MovieId">
+                <div type="button" class="btn btn-danger">Delete Movies</div>
+            </a>*@
+            <a asp-action="Index">
+                <div type="button" class="btn btn-info">Back to list</div>
+            </a>
+            <form asp-action="Delete" asp-route-id="@Model.MovieId" style="margin-top: 1rem;">
+                <div class="form-group">
+                    <input type="hidden" asp-for="MovieId" />
+                    <input onclick="return AreYouSure()" type="submit" value="Delete Movie" class="btn btn-danger" />
+                </div>
+            </form>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+</div>
+
+    <div>
+        <h4>Movie</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Director)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Director)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Cast)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Cast)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Duration)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Duration)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Trailer)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Trailer)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ImageName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ImageName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Cinema)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Cinema.CinemaId)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.MovieId">Edit</a> |
+        <a asp-action="Delete" asp-route-id="@Model.MovieId">Delete</a>
+        <a asp-action="Index">Back to List</a>
+    </div>

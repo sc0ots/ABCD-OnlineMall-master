@@ -1,0 +1,129 @@
+﻿@model IEnumerable<ABCD_OnlineMall.Models.Plot>
+
+@{
+    ViewData["Title"] = "IndexAdmin";
+    Layout = "~/Views/Shared/_AdminIndex.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Table Plots</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Plots</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PlotName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.IsEmpty)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Floor)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Store)
+                                        </th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PlotName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.IsEmpty)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Floor)
+                                        </td>
+                                        <td> <a asp-action="StoreDetails" asp-route-id="@item.StoreId">@Html.DisplayFor(modelItem => item.Store.StoreName)</a></td>
+                                        <td>
+                                            @if (item.StoreId == null)
+                                            {
+                                                <a asp-action="CreateStore" asp-route-id="@item.PlotId" class="btn btn-info">Add new store </a>
+                                            }
+                                        </td>
+                                    </tr>
+                                    }
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+
+    @*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlotName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsEmpty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Floor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Store)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlotName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsEmpty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Floor)
+                    </td>
+                    <td>
+                        <a asp-action="StoreDetails" asp-route-id="@item.StoreId">@Html.DisplayFor(modelItem => item.Store.StoreName)</a>
+                    </td>
+                    <td>
+                        @if (item.StoreId == null)
+                        {
+                            <a asp-action="CreateStore" asp-route-id="@item.PlotId">Add new store </a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

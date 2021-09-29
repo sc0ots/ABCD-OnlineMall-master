@@ -1,0 +1,302 @@
+﻿
+.back-ground-img {
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    padding-top: 30%;
+    position: relative;
+}
+
+.blur {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3) );
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+/* Slogan in backround */
+.wrap-slogan {
+    background-color: transparent;
+    height: 50px;
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slogan-in-backround {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    color: var(--white-color);
+    z-index: 4;
+    top: 50%;
+    left: 19%;
+    transform: translateY(-50%);
+}
+
+.slogan-in-backround__slogan {
+    font-size: 1.6rem;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 1);
+    color: var(--white-color);
+    padding: 12px 0;
+}
+
+.slogan-in-backround__text {
+    font-size: 3.4rem;
+    padding: 12px 0;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 1);
+    color: var(--white-color);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.slogan-in-backround__btn {
+    width: 150px;
+    padding: 10px 0;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    background-color: var(--primary-color);
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: var(--white-color);
+    padding: 12px 0;
+    letter-spacing: 4px;
+    box-shadow: inset 0 0 0 0 #292929;
+    transition: ease-out 0.5s;
+    font-weight: bold;
+}
+
+    .slogan-in-backround__btn:hover {
+        box-shadow: inset 150px 0 0 0 #292929;
+        cursor: pointer;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+    }
+
+.time {
+    position: absolute;
+    right: 0;
+    bottom: 2%;
+    display: flex;
+}
+
+.time-item {
+    min-width: 80px;
+    background-color: #333;
+    margin: 0 8px;
+    padding: 10px;
+    background-color: transparent;
+}
+
+.time-item-child {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-item-child-number {
+    font-size: 2.2rem;
+    color: #dfc7c1;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 1);
+}
+
+.time-item-child-text {
+    color: #dfc7c1;
+}
+/* End Slogan in backround */
+
+
+/* Introduce / Location /Time Open */
+.home {
+    padding: 40px 0 20px 0;
+}
+
+.home-wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.grid {
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.col-4 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 33.3334%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    flex-direction: column;
+}
+
+.item-icon {
+    border: 4px solid rgb(88, 80, 80);
+    border-radius: 50%;
+    box-sizing: border-box;
+    padding: 25px;
+}
+
+    .item-icon i {
+        font-size: 2rem;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+.heading-link,
+.heading {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: black;
+    margin: 14px 0 10px 0;
+}
+
+.heading-link {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .heading-link:hover {
+        border-bottom: 1px solid var(--border-color);
+        position: 0.3s;
+        color: var(--primary-color);
+        cursor: pointer;
+    }
+
+.text {
+    font-size: 1.2rem;
+    color: var(--text-main-color);
+}
+
+/* End Introduce / Location /Time Open */
+
+/* Tendency */
+.home-tendency {
+}
+
+.tendency-heading {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3.4rem;
+    margin: 20px 0;
+}
+
+.tendency-heading__border {
+    position: relative;
+    padding: 8px 0;
+    color: var(--primary-color);
+}
+
+    .tendency-heading__border::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        background: #c21500;
+        background: -webkit-linear-gradient(to right, #c21500, #ffc500);
+        background: linear-gradient(to right, #c21500, #ffc500);
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .tendency-heading__border::before {
+        content: "";
+        position: absolute;
+        height: 2px;
+        background: #c21500;
+        background: -webkit-linear-gradient(to right, #c21500, #ffc500);
+        background: linear-gradient(to right, #c21500, #ffc500);
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+.grid-tendency {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.col-tendency-4 {
+    width: 25%;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.col-tendency-img {
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: cover;
+    min-height: 450px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+    .col-tendency-img:hover::before {
+        display: block;
+        transition: 0.3;
+        animation: fadeIn ease-in-out 0.3s;
+        cursor: pointer;
+    }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.col-tendency-img:hover .col-tendency-heading {
+    display: block;
+    cursor:pointer;
+}
+.col-tendency-heading:hover {
+    cursor: pointer;
+}
+
+.col-tendency-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7) );
+    z-index: 1;
+    display: none;
+    transition: 0.3;
+}
+
+.col-tendency-heading {
+    position: absolute;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #b9aaa5;
+    font-size: 3rem;
+    z-index: 2;
+    animation: fadeIn ease-in-out 0.3s;
+    display: none;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+/* End Tendency */

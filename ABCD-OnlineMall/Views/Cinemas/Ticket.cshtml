@@ -1,0 +1,99 @@
+﻿@{
+    Layout = "~/Views/Shared/_cinemas.cshtml";
+}
+@{
+    ViewData["Title"] = "Ticket";
+}
+
+<section class="container" onload="generateQRCode()">
+    <div class="order-container" onload="generateQRCode()">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+        <h2 style="margin:10px">You have successfully booked your ticket!</h2>
+        <p style="margin:10px">Please note down these informations below and present them to our staff when you are checking in</p>
+        <div class="order">
+
+            <div class="ticket" style="margin-top:20px">
+                <div class="ticket-position">
+                    <div class="ticket__indecator indecator--pre"><div class="indecator-text pre--text">online ticket</div> </div>
+                    <div class="ticket__inner" style=" background-color: rgb(255 235 175);">
+
+                        <div class="ticket-secondary">
+                            <span class="ticket__item">Title :<strong class="ticket__number" style="font-size:120%;"> @ViewBag.movietitle</strong></span>
+                            <span class="ticket__item">Ticket number <strong class="ticket__number">@ViewBag.code</strong></span>
+                            <span class="ticket__item ticket__date">Date: <strong class="ticket__number"> @ViewBag.date</strong></span>
+                            <span class="ticket__item ">Time:<strong class="ticket__number"> @ViewBag.time</strong></span>
+                            <span class="ticket__item">Cinema: <span class="ticket__cinema">@ViewBag.cinema</span></span>
+                            <span class="ticket__item">Price: <span class="ticket__hall">$@ViewBag.total</span></span>
+                            <span class="ticket__item ticket__item--primery">
+                                Seats: <span class="ticket__place">
+                                    @foreach (var str in ViewBag.seat)
+                                    {
+                                        <span>
+                                            @Html.Raw(str + " ");
+                                        </span>
+                                    }
+                                </span>
+                            </span>
+
+                        </div>
+
+                        <div class="ticket-primery">
+
+                            <div>
+                                <span>QR code:</span>
+                                <br />
+
+                            </div>
+
+
+                            <canvas id="qr-code"></canvas>
+
+                        </div>
+
+
+                    </div>
+                    <div class="ticket__indecator indecator--post"><div class="indecator-text post--text">online ticket</div></div>
+                </div>
+            </div>
+
+            <div class="ticket-control" style="margin-bottom:0; margin-top:0;">
+                <a href="#" class="watchlist list--print" style=" background-color: #ffd564; border-radius:2px"><button onclick="window.print()">Print this page</button></a>
+            </div>
+
+            <script>
+        document.readyState
+        var qr;
+        (function () {
+            qr = new QRious({
+                element: document.getElementById('qr-code'),
+                size: 200,
+                value: '"Reserveation code: @ViewBag.code;Title: @ViewBag.movietitle; Time: @ViewBag.time; Cinema: @ViewBag.cinema; Date: @ViewBag.date;Name: @ViewBag.name; Total: $@ViewBag.total; Seat: @foreach (var str in ViewBag.seat)
+            {
+                 @Html.Raw(str+" ");
+            }"'
+            });
+        })();
+
+        function generateQRCode() {
+            var qrtext = "Reserveation code: @ViewBag.code; Time: @ViewBag.time; Cinema: @ViewBag.cinema; Date: @ViewBag.date;Name: @ViewBag.name; Total: $@ViewBag.total; Seat: @foreach (var str in ViewBag.seat)
+            {
+                 @Html.Raw(str+" ");
+            }";
+
+
+            qr.set({
+                foreground: 'black',
+                size: 200,
+                value: qrtext
+            });
+        }
+
+            </script>
+
+        </div>
+    </div>
+</section>
+
+
+

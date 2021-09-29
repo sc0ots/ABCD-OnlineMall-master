@@ -1,0 +1,186 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AMovie</title>
+    <meta name="description" content="A Template by Gozha.net">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Gozha.net">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="~/cinemas/css/gozha-nav.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/cinemas/rs-plugin/css/settings.css" media="screen" />
+    <link href="~/cinemas/css/style.css?v=1" rel="stylesheet" />
+    <link href="~/cinemas/css/headermovie.css" rel="stylesheet" />
+</head>
+<body>
+    @*<div class="wrapper" style=" min-height: 52px;">
+        <header class="header-wrapper header-wrapper--home" style="background-color:#9b9393;">
+            <div class="container">
+                <a href='/Home/Index' class="logo" style="font-size: 200%; color:rgb(238, 6, 6);">
+                    ABCD.<span style="color:white; ">mall  Cinemas</span>
+                </a>
+                <nav id="navigation-box" style="margin-left:10%;">
+                    <ul id="navigation" style="margin-right:7%;">
+                        <li>
+                            <a href="/Stores/Index" style="font-size: 170%; color:white;">Store</a>
+                        </li>
+                        <li>
+                            <a href="/cinemas/indexclient" style="font-size: 170%;color:white;">Cinemas</a>
+                        </li>
+                        <li>
+                            <a href="/Products/Index" style="font-size: 170%;color:white;">Products</a>
+                        </li>
+
+                        <div id="google_translate_element"></div>
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+                            }
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>*@
+    <div class="header-movies">
+        <div class="header-movies-1200">
+            <a href="/Cinemas/IndexClient" class="header-movies-logo">
+                <h1 style="margin: 0; font-size: 3rem;"><span style="color:#ee4d2d">ABCD.</span>Cinema</h1>
+            </a>
+            @*<div class="header-movies-search">
+                <input type="text"
+                       class="header-movies-search-input"
+                       placeholder="Movie search..."></input>
+                <div class="header-movies-search-btn">GO</div>
+            </div>*@
+            <div class="header-movies-nav">
+                <ul class="header-movies-nav-list" style="margin-bottom: 0">
+                    <a href="/Stores/Index" class="header-movies-nav-item">
+                        <li>Stores</li>
+                    </a>
+                    <a href="/Products/Index" class="header-movies-nav-item">
+                        <li>Products</li>
+                    </a>
+                    <a href="/Brands/Index" class="header-movies-nav-item">
+                        <li>Brands</li>
+                    </a>
+                </ul>
+            </div>
+            @*<div class="header-movies-user">
+                <div class="text-login">Login</div>
+            </div>*@
+        </div>
+        <div id="google_translate_element"></div>
+    </div>
+
+
+    <div class="wrapper" style=" min-height: 53px;">
+        <div class="bannercontainer">
+            <div class="banner">
+                <ul>
+                    <li data-transition="fade" data-slotamount="7" class="slide" data-slide='Rush.' style="height:400px">
+                        <img alt='' src="~/cinemas/images/Movie-1.jpg">
+                    </li>
+                    <li data-transition="fade" data-slotamount="7" class="slide fading-slide" style="width:100%">
+                        <img alt='' src="~/cinemas/images/Movie-2.jpg">
+                    </li>
+                    <li data-transition="fade" data-slotamount="7" class="slide" style="height:400px">
+                        <img alt='' src="~/cinemas/images/e.jpg">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Slider -->
+        @RenderBody()
+    </div>
+
+    <footer>
+        <link href="~/client/css/main/footer.css" rel="stylesheet" />
+        <link href="~/client/css/main/base.css" rel="stylesheet" />
+        <div class="footer">
+            <div class="footer-wrap" style="padding-top:0px;margin-top:25px;">
+                <div class="grid footer-border" style=" padding-bottom:0px;">
+                    <div class="col-3">
+                        <div class="logo-footer">
+                            <a href="/Cinemas/IndexClient" class="logo-footer-link">
+                                <span class="logo-footer-left">ABCD.</span>
+                                <span class="logo-footer-right">Cinema</span>
+                            </a>
+                            <h2 class="footer-heading-"></h2>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <h1 class="footer-heading">Products</h1>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="/Home/Index" class="footer-item-link">
+                                    Home
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3">
+                        <h1 class="footer-heading">Support</h1>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="/Contact/Index" class="footer-item-link">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3">
+                        <ul class="footer-list-icon">
+                            <li class="footer-item-icon">
+                                <a href="" class="footer-item-icon-link">
+                                    <img src="https://vanhanhmall.com/wp-content/uploads/2018/06/icon-intergra.png"
+                                         alt="" class="footer-item-icon-img">
+                                </a>
+                            </li>
+                            <li class="footer-item-icon">
+                                <a href="" class="footer-item-icon-link">
+                                    <img src="https://vanhanhmall.com/wp-content/uploads/2018/06/icon-youtube.png"
+                                         alt="" class="footer-item-icon-img">
+                                </a>
+                            </li>
+                            <li class="footer-item-icon">
+                                <a href="" class="footer-item-icon-link">
+                                    <img src="https://vanhanhmall.com/wp-content/uploads/2018/06/icon-email.png" alt=""
+                                         class="footer-item-icon-img">
+                                </a>
+                            </li>
+                            <li class="footer-item-icon">
+                                <a href="" class="footer-item-icon-link">
+                                    <img src="https://vanhanhmall.com/wp-content/uploads/2018/06/icon-fb.png" alt=""
+                                         class="footer-item-icon-img">
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <p class="footer-text">© 2021 Ownership of FPT Aptech.</p>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/cinemas/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="~/cinemas/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/cinemas/js/custom.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            init_Home();
+        });
+    </script>
+</body>
+</html>

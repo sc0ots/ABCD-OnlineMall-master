@@ -1,0 +1,113 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+@section homejs{
+    <script src="~/client/js/home.js"></script>
+}
+@section homecss{
+    <link href="~/client/css/home.css" rel="stylesheet" />
+}
+
+<section class="back-ground-img" style="background-image: url(../../../client/img/backround-1.jpg)">
+    <div class="blur">
+        <div class="slogan-in-backround">
+            <span class="slogan-in-backround__slogan">Transforming shopping into an experience.</span>
+            <span class="slogan-in-backround__text">ABCD Mall. Where you have it all!</span>
+        </div>
+        <div class="time">
+            <div class="time-item">
+                <div class="time-item-child">
+                    <span class="time-item-child-number"></span>
+                    <span class="time-item-child-text">DAYS</span>
+                </div>
+            </div>
+            <div class="time-item">
+                <div class="time-item-child">
+                    <span class="time-item-child-number"></span>
+                    <span class="time-item-child-text">HOURS</span>
+                </div>
+            </div>
+            <div class="time-item">
+                <div class="time-item-child">
+                    <span class="time-item-child-number"></span>
+                    <span class="time-item-child-text">MINUTES</span>
+                </div>
+            </div>
+            <div class="time-item">
+                <div class="time-item-child">
+                    <span class="time-item-child-number"></span>
+                    <span class="time-item-child-text">SECONDS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Introduce / Time open -->
+<div class="home">
+    <div class="home-wrapper">
+        <div class="grid">
+            <div class="col-4">
+                <div class="item-icon">
+                    <i class="fas fa-info" ></i>
+                </div>
+                <a href="/Contact/Index" class="heading-link">Introduce</a>
+                <p class="text">Thank you for Comming !</p>
+            </div>
+            <div class="col-4">
+                <div class="item-icon">
+                    <i class="fas fa-location-arrow"></i>
+                </div>
+                <h1 class="heading">Location</h1>
+                <p class="text">
+                    590 Cach Mang Thang 8, District 3, Ho Chi Minh City
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="item-icon">
+                    <i class="far fa-clock"></i>
+                </div>
+                <h1 class="heading">Time Open</h1>
+                <p class="text">
+                    T2 - T6: 11h00 - 21h00 | T7,CN: 10h00 - 21h00
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Introduce -->
+<!-- Tendecy -->
+<div class="home-tendency">
+    <h1 class="tendency-heading">
+        <span class="tendency-heading__border">Tendency</span>
+    </h1>
+    <div class="grid-tendency">
+        <a class="col-tendency-4" asp-action="IndexFood" asp-controller="Stores">
+            <div class="col-tendency-img"
+                 style="background-image: url(../../../client/img/food.jpg)">
+                <h2 class="col-tendency-heading">Foods</h2>
+            </div>
+        </a>
+        <a class="col-tendency-4" asp-action="IndexClothing" asp-controller="Stores">
+            <div class="col-tendency-img"
+                 style="background-image: url(../../../client/img/clothings.jpg)">
+                <h2 class="col-tendency-heading">Clothings</h2>
+            </div>
+        </a>
+
+        <a class="col-tendency-4" asp-action="IndexClient" asp-controller="Cinemas" target="_blank">
+            <div class="col-tendency-img"
+                 style="background-image: url(../../../client/img/movies.jpg)">
+                <h2 class="col-tendency-heading">Movies</h2>
+            </div>
+        </a>
+        <a class="col-tendency-4" asp-action="IndexOther" asp-controller="Stores">
+            <div class="col-tendency-img"
+                 style="background-image: url(../../../client/img/other.jpg)">
+                <h2 class="col-tendency-heading">Other</h2>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- End Tendecy -->

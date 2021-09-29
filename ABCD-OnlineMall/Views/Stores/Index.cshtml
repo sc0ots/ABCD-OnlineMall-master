@@ -1,0 +1,97 @@
+﻿@model IEnumerable<ABCD_OnlineMall.Models.Store>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section onload{
+    <script src="~/client/js/onload.js"></script>
+}
+
+@section storecss{
+    <link href="~/client/css/store.css" rel="stylesheet" />
+}
+
+<div class="store">
+    <div class="store-1200">
+        <div class="heading-title">
+            <h1 class="heading-title-text">Stores</h1>
+        </div>
+        @using (Html.BeginForm("Index", "Stores", FormMethod.Get))
+        {
+            <div class="search">
+                <div class="search-wrap">
+                    <input name="searchString" type="text" class="search-input" placeholder="Input search...">
+                    <button type="submit" value="Search" class="fas fa-search search-icon" />
+                </div>
+            </div>
+        }
+
+        <div class="store-wrap" id="list-store">
+            <div class="grid">
+                @foreach (var item in Model)
+                {
+                    <div class="col-3">
+                        <a asp-controller="Plots" asp-action="StoreDetailsClient" asp-route-id="@item.StoreId" class="card card--effect-1">
+                            <div class="card-img"
+                                 style='background-image: url("/@item.ImageName");'>
+                            </div>
+                            <div class="card-more">
+                                <p class="card-text">More</p>
+                            </div>
+                        </a>
+                        <h1 class="card-name">@Html.DisplayFor(modelItem => item.StoreName)</h1>
+                        <div class="card-time">
+                            <p class="time-string">@Html.DisplayFor(modelItem => item.OpenTime) - @Html.DisplayFor(modelItem => item.CloseTime)</p>
+                            <p class="time-text-open">Open</p>
+                            <p class="time-text-close">Close</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="notification">
+            <div class="notification-text">
+                Not Found
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var store = document.getElementById("list-store");
+    if (store.clientHeight == 0) {
+        document.getElementsByClassName("notification")[0].style.display = "block";
+    }
+    const time = new Date();
+
+    let day = time.getDate();
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    let seconds = time.getSeconds();
+
+    const timestring = document.getElementsByClassName('time-string');
+    for (var i = 0; i < timestring.length; i++) {
+        var timer = timestring[i].innerHTML;
+        var openhours = parseInt(timer.slice(0, 2));
+        var openminutes = parseInt(timer.slice(3, 5));
+        //console.log(typeof openhours);
+        //console.log(openminutes);
+        var closehours = parseInt(timer.slice(11, 13));
+        var closeminutes = parseInt(timer.slice(14, 16));
+        //console.log(closehours);
+        //console.log(closeminutes);
+        var textopen = document.getElementsByClassName('time-text-open');
+        var textclose = document.getElementsByClassName('time-text-close');
+        console.log(textopen);
+        console.log(textclose);
+        if (hours > openhours && hours < closehours) {
+            textopen.style.display = "block";
+        } else {
+            textclose.style.display = "block";
+        }
+
+    }
+
+
+
+
+</script>

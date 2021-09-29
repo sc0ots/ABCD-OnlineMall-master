@@ -1,0 +1,162 @@
+.store {
+  width: 100%;
+  padding-top: 53px;
+}
+.store-1200 {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.store-wrap {
+  margin: 16px 0;
+}
+/* Css and Hover img zoom */
+.card {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  display: block;
+}
+
+.card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-more {
+  color: hsl(0, 0%, 90%);
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+}
+.card-text {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  font-weight: 900;
+}
+.card--effect-1 .card-img {
+  transform: scale(0.96);
+  transition: 0.4s;
+}
+
+.card--effect-1:hover .card-img {
+  transform: scale(1);
+  cursor: pointer;
+}
+/* End Css and Hover img zoom */
+
+/* Hover Display Text */
+.card--effect-1 .card-more {
+  top: 50%;
+  left: 50%;
+  bottom: unset;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.card--effect-1 .card-text {
+  transform: scale(2);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card--effect-1:hover .card-text {
+  opacity: 0.8;
+  transform: scale(1);
+  cursor: pointer;
+}
+
+.card-name {
+  font-size: 2.4rem;
+  padding: 16px 0;
+  border-bottom: 2px solid #f5af19;
+  text-align: center;
+}
+/* End hover Display text */
+.card--effect-1 {
+  display: block;
+}
+
+.card--effect-1 .card-img {
+  transition: 0.8s;
+}
+
+.card--effect-1:hover .card-img {
+  filter: saturate(0);
+}
+
+.card--effect-1 .card-text {
+  transition: 0.9s;
+}
+
+.card--effect-1:hover .card-text {
+  color: var(--primary-color);
+}
+
+/* Hover Change Color background */
+/* End Hover Change Color background*/
+.card-time {
+    font-size: 1.4rem;
+    color: var(--text-black-color);
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search {
+  margin: 0 auto;
+  width: 300px;
+  padding: 30px 0 30px 0;
+}
+.search-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #f12711;
+  overflow: hidden;
+}
+.search-input {
+  flex: 1;
+  outline: none;
+  border: none;
+  padding: 10px 16px;
+}
+.search-icon {
+    padding: 10px;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+}
+    .search-icon:hover {
+        cursor: pointer;
+        color: var(--primary-color);
+        border: none;
+        outline: none;
+    }
+
+.notification {
+    width: 100%;
+    min-height: 490px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.notification-text {
+    font-size: 3rem;
+}
+.time-text-close,
+.time-text-open {
+    display: none;
+}

@@ -1,0 +1,83 @@
+﻿@model ABCD_OnlineMall.Models.Sharemodel2
+
+@{
+    ViewData["Title"] = "DetailsClient";
+}
+@section onload{ 
+    <script src="~/client/js/onload.js"></script>
+}
+@section detailBrandcss{ 
+    <link href="~/client/css/detailBrand.css" rel="stylesheet" />
+}
+
+<div class='container_brand'>
+    <div class="container_content">
+        <div class="container_content_inner">
+            <div class="title">
+                <h1>
+                    @Html.DisplayFor(model => model.Brands.BrandName)
+                </h1>
+            </div>
+            <div  class="par">
+                <p>
+                    @Html.DisplayFor(model => model.Brands.BrandUrl)
+                </p>
+            </div>
+            <a href="@Html.DisplayFor(model => model.Brands.BrandUrl)" target="_blank">
+                <div class="btns">
+                    <button class='btns_more' style="cursor:pointer"> See more </button>
+                </div>
+            </a>
+        
+        </div>
+    </div>
+    <div class="container_outer_img">
+        <div class="img-inner">
+            <img src='@Url.Content("~/"+Model.Brands.ImageName)'
+                 alt="" class="container_img" />
+        </div>
+    </div>
+</div>
+<div class="overlay"></div>
+
+
+
+
+@*<div>
+    <h4>Brand</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Brands.BrandName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Brands.BrandName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Brands.BrandUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Brands.BrandUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Brands.ImageName)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Url.Content("~/"+Model.Brands.ImageName)" width="180" height="200" alt="Images" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Brands.Store)
+        </dt>
+        <dd class="col-sm-10">
+            <a asp-action="StoreDetails" asp-controller="Plots" asp-route-id="@Model.Brands.StoreId">@Html.DisplayFor(model => model.Brands.Store.ImageName)</a>
+        </dd>
+    </dl>
+    Product:
+    @foreach (var item in Model.Products)
+    {
+        <a asp-controller="Products" asp-action="DetailsClient" asp-route-id="@item.ProductId">@Html.DisplayFor(Modelitem => item.ProductName)</a><br />
+        <a asp-controller="Products" asp-action="DetailsClient" asp-route-id="@item.ProductId">@Html.DisplayFor(Modelitem => item.ImageName)</a>
+    }
+
+</div>*@
+

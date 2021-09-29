@@ -1,0 +1,77 @@
+﻿@model ABCD_OnlineMall.Models.Product
+
+@{
+    ViewData["Title"] = "DetailsClient";
+}
+@section onload{ 
+    <script src="~/client/js/onload.js"></script>
+}
+@section productdetailcss{ 
+    <link href="~/client/css/productdetail.css" rel="stylesheet" />
+}
+<div class="product-detail-1200">
+    <div class="card-container">
+        <div class="card u-clearfix">
+            <div class="card-body">
+                <span class="card-number card-circle subtle">SG</span>
+                <span class="card-author subtle">
+                    @Html.DisplayFor(model => model.Category)
+                </span>
+                <h2 class="card-title">
+                    @Html.DisplayFor(model => model.ProductName)
+                </h2>
+                <span class="card-description subtle">
+                   Store: <a asp-controller="Plots" asp-action="StoreDetailsClient" asp-route-id="@Model.Store.StoreId">@Html.DisplayFor(model => model.Store.StoreName)</a>
+                </span>
+                <br />
+                <span class="card-description subtle">
+                   Brand: <a asp-controller="Brands" asp-action="DetailsClient" asp-route-id="@Model.Brand.BrandId">@Html.DisplayFor(model => model.Brand.BrandName)</a>
+                </span>
+                <div class="card-read">Read</div>
+                <span class="card-tag card-circle subtle">C</span>
+            </div>
+            <img src="@Url.Content("~/"+Model.ImageName)" alt="" class="card-media" />
+        </div>
+        <div class="card-shadow"></div>
+    </div>
+</div>
+
+
+@*<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Url.Content("~/"+Model.ImageName)" width="180" height="200" alt="Images" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+        <dd class="col-sm-10">
+            <a asp-controller="Brands" asp-action="Details" asp-route-id="@Model.BrandId"><img src="@Url.Content("~/"+Model.Brand.ImageName)" width="180" height="200" alt="Images" /></a>
+
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Store)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Store.StoreId)
+        </dd>
+    </dl>
+</div>*@
+

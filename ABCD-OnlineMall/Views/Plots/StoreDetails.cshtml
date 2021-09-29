@@ -1,0 +1,313 @@
+﻿@model ABCD_OnlineMall.Models.Sharemodel1
+
+@{
+    ViewData["Title"] = "StoreDetails";
+    Layout = "~/Views/Shared/_AdminIndex.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Detail Store</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Detail Store</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Stores.StoreName)
+                                        </th>
+                                        <th>
+                                            Time Open
+                                        </th>
+                                        <th>
+                                            Time Close
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Stores.StoreCategory)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Stores.StoreAbout)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Stores.ImageName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Stores.PromoImageName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Stores.StoreDescription)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Stores.Plot.PlotName)
+                                        </th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Stores.StoreName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Stores.OpenTime)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Stores.CloseTime)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Stores.StoreCategory)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Stores.StoreAbout)
+                                        </td>
+                                        <td>
+                                            <img src="@Url.Content("~/"+Model.Stores.ImageName)" width="180" height="200" alt="Images" />
+
+                                        </td>
+                                        <td>
+                                            <img src="@Url.Content("~/"+Model.Stores.PromoImageName)" width="180" height="200" alt="Images" />
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Stores.StoreDescription)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Stores.Plot.PlotName)
+                                        </td>
+                                        <td>
+                                            <a asp-controller="Brands" asp-action="Create" asp-route-id="@Model.Stores.StoreId">
+                                                <div type="button" class="btn btn-primary">Add Brand</div>
+                                            </a>
+                                            <a asp-controller="Products" asp-action="Create" asp-route-id="@Model.Stores.StoreId">
+                                                <div type="button" class="btn btn-danger">Add Product</div>
+                                            </a>
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <div style="margin-bottom: 1rem;">
+                <a asp-controller="Stores" asp-action="Edit" asp-route-id="@Model.Stores.StoreId">
+                    <div type="button" class="btn btn-primary">Edit Store</div>
+                </a>
+
+                <a asp-action="IndexAdmin">
+                    <div type="button" class="btn btn-info">Back to list</div>
+                </a>
+                <form asp-action="DeleteStore" asp-route-id="@Model.Stores.PlotId" style="margin-top: 1rem;">
+                    <div class="form-group">
+                        <input hidden value="@Model.Stores.StoreId" name="storeid">
+                        <input onclick="return AreYouSure()" type="submit" value="Delete Store" class="btn btn-danger" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Brand of Store</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>BrandName</th>
+                                        <th>BrandUrl</th>
+                                        <th>BrandImage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Brands)
+                                    {
+                                        <tr>
+                                            <td><a asp-controller="Brands" asp-action="Details" asp-route-id="@item.BrandId">@Html.DisplayFor(modelItem => item.BrandName)</a></td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BrandUrl)
+                                            </td>
+                                            <td><a asp-controller="Brands" asp-action="Details" asp-route-id="@item.BrandId"><img src="~/@item.ImageName" width="120" height="80" alt="Images" /></a></td>
+                                        </tr>
+                                    }
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">List Product in Store</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Product Image</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model.Products)
+                                    {
+                                        <tr>
+                                            <td><a asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId">@Html.DisplayFor(modelItem => item.ProductName)</a></td>
+                                            <td>
+                                                <a asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId"><img src="~/@item.ImageName" width="120" height="80" alt="Images" /></a>
+                                            </td>
+                                        </tr>
+                                    }
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+
+
+
+
+
+@*<div>
+    <h4>Store</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stores.StoreName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Stores.StoreName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stores.StoreCategory)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Stores.StoreCategory)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stores.StoreAbout)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Stores.StoreAbout)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stores.ImageName)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@Url.Content("~/"+Model.Stores.ImageName)" width="180" height="200" alt="Images" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stores.PromoImageName)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@Url.Content("~/"+Model.Stores.PromoImageName)" width="180" height="200" alt="Images" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stores.StoreDescription)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Stores.StoreDescription)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stores.Plot.PlotName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Stores.Plot.PlotName)
+            </dd>
+        </dl>
+        <dl class="row">
+            <p><a asp-controller="Brands" asp-action="Create" asp-route-id="@Model.Stores.StoreId">Add Brand</a></p>
+            <p><a asp-controller="Products" asp-action="Create" asp-route-id="@Model.Stores.StoreId">Add Product</a></p>
+            <p><a asp-controller="Plots" asp-action="EditStore" asp-route-id="@Model.Stores.StoreId">Edit Store</a></p>
+        </dl>
+    Products
+    <table class="table">
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td><a asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId"><img src="~/@item.ImageName" width="120" height="80" alt="Images" /></a></td>
+                <td><a asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId">@Html.DisplayFor(modelItem => item.ProductName)</a></td>
+            </tr>
+        }
+    </table>
+
+    Brands
+    <table class="table">
+        @foreach (var item in Model.Brands)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Brands" asp-action="Details" asp-route-id="@item.BrandId"><img src="~/@item.ImageName" width="120" height="80" alt="Images" /></a>
+                </td>
+                <td>
+                    <a asp-controller="Brands" asp-action="Details" asp-route-id="@item.BrandId">@Html.DisplayFor(modelItem => item.BrandName)</a>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.BrandUrl)</td>
+            </tr>
+
+        }
+    </table>
+
+</div>
+<div>
+    <a asp-controller="Stores" asp-action="edit" asp-route-id="@Model.Stores.StoreId">Edit Store</a>
+    <a asp-action="DeleteStore" asp-route-id="@Model.Stores.PlotId">DeleteStore</a>
+    <a asp-action="IndexAdmin">Back to List</a>
+</div>*@

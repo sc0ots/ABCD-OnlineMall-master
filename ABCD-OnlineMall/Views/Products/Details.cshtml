@@ -1,0 +1,141 @@
+﻿@model ABCD_OnlineMall.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminIndex.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Detail Product : @Html.DisplayNameFor(model => model.ProductName)</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Detail Product</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ProductName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Category)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ImageName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Brand)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Store)
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.ProductName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Category)
+                                        </td>
+                                        <td>
+                                            <img src="@Url.Content("~/"+Model.ImageName)" width="180" height="200" alt="Images" />
+                                        </td>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.Store)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Store.StoreId)
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <div style="margin-bottom: 1rem;">
+                <a asp-action="Edit" asp-route-id="@Model.ProductId">
+                    <div type="button" class="btn btn-primary">Edit Product</div>
+                </a>
+
+                <a asp-action="Index">
+                    <div type="button" class="btn btn-info">Back to list</div>
+                </a>
+                <form asp-action="Delete" asp-route-id="@Model.ProductId" style="margin-top: 1rem;">
+                    <div class="form-group">
+                        <input hidden value="@Model.StoreId" name="storeid">
+                        <input onclick="return AreYouSure()" type="submit" value="Delete Product" class="btn btn-danger" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+</div>
+
+@*<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Url.Content("~/"+Model.ImageName)" width="180" height="200" alt="Images" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Brand.BrandId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Store)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Store.StoreId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
+    <a asp-action="Delete" asp-route-id="@Model.ProductId">Delete</a> |
+    <a asp-action="Index">Back to List</a>
+</div>*@

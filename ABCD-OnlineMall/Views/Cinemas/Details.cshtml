@@ -1,0 +1,83 @@
+﻿@model ABCD_OnlineMall.Models.Movie
+@{
+    ViewData["Title"] = "Details";
+}
+
+@{
+    Layout = "~/Views/Shared/_cinemas.cshtml";
+}
+
+<section class="container" style="padding-top:10px">
+    <div class="col-sm-8 col-md-9">
+        <div class="movie">
+            <div class="movie__info">
+                <div class="col-sm-6 col-md-4 movie-mobile">
+                    <div class="movie__images">
+
+                        <img alt='' src="@Url.Content("~/"+Model.ImageName)" style="width: 100%;">
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6 col-md-8">
+                    <h2 class="page-heading" style="padding-left:0px"><strong style="font-size:70%">Name: </strong> @Html.DisplayFor(model => model.Title)</h2>
+                    <p class="movie__option"><strong>Duration: </strong> @Html.DisplayFor(model => model.Duration)</p>
+
+                    <p class="movie__option">
+                        <strong>Director: </strong>@Html.DisplayFor(model => model.Director)
+                    </p>
+                    <p class="movie__option"><strong>Cast: </strong> @Html.DisplayFor(model => model.Cast)</p>
+                    <p class="movie__option"><strong>Price: </strong> @Html.DisplayFor(model => model.Price)</p>
+                    <p class="movie__option"><strong>Description: </strong> @Html.DisplayFor(model => model.Description)</p>
+                    <p class="movie__option"><strong>Trailer: </strong> <button class="btn btn--danger"><a href="@Html.DisplayFor(model => model.Trailer)">Click Me</a></button></p>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+    </div>
+    <div>
+        @using (Html.BeginForm("PickSeat", "Cinemas"))
+        {
+
+            <div class="form-group">
+                <div id="datepicker" class="input-append">
+                    <h2 style="color:darkorange">Booking a ticket</h2>
+                    <p style="margin:0px"><strong>Pick Date</strong></p>
+                    <input data-format="MM/dd/yyyy" type="date" name="date" required />
+                    <span class="add-on">
+                        <i data-date-icon="icon-calendar">
+                        </i>
+                    </span>
+                </div>
+                <p style="margin:0px"><strong> Pick a screening Time</strong></p>
+                <select name="time" id="time" type="text" style="font-size:130%;min-width:140px; margin:10px;background-color: #ffd564;
+    border: solid 1px #ffc936;" required>
+                    <option value="08:00">8:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="20:00">20:00</option>
+                </select>
+            </div>
+
+
+            <input type="number" value="@Html.DisplayFor(model => model.Cinema.CinemaId)" name="cinema" hidden>
+            <input type="number" value="@Html.DisplayFor(model => model.Price)" name="price" hidden>
+            <input type="text" value="@Html.DisplayFor(model => model.Title)" name="title" hidden>
+
+            <input class="btn btn-md btn--warning" type="submit" value="book a ticket for this movie" style="margin-top:50px" />
+
+            <script type="text/javascript">
+                $(function () {
+                    $("#datepicker").datepicker({ minDate: 0 });
+                })
+            </script>
+        }
+    </div>
+</section>
+

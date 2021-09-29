@@ -1,0 +1,78 @@
+﻿@model ABCD_OnlineMall.Models.Feedback
+
+@{
+    ViewData["Title"] = "Create";
+}
+@section onload{
+    <script src="~/client/js/onload.js"></script>
+}
+@section feedbackcss{
+    <link href="~/client/css/feedback.css" rel="stylesheet" />
+}
+
+<div class="container-feedback">
+    <div class="left">
+        <div class="left-wrap">
+            <div class="header-feedback">
+                <h2 class="animation a1">FeedBacks</h2>
+                <h4 class="animation a2">Send your FeedBack for us</h4>
+            </div>
+            <form class="form" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="FeedbackSubject" class="form-field animation a3" placeholder="FeedBack Subject">
+                <span asp-validation-for="FeedbackSubject" class="text-danger"></span>
+                <input asp-for="FeedbackContent" class="form-field animation a4" placeholder="Feedback Content">
+                <span asp-validation-for="FeedbackContent" class="text-danger"></span>
+                <input type="email" asp-for="UserEmail" class="form-field animation a4" placeholder="Your Email">
+                <span asp-validation-for="UserEmail" class="text-danger"></span>
+                <div class="form-group" hidden>
+                    <label asp-for="FeedbackDate" class="control-label"></label>
+                    <input asp-for="FeedbackDate" class="form-control" />
+                    <span asp-validation-for="FeedbackDate" class="text-danger"></span>
+                </div>
+                <button type="submit" class="animation a6">FeedBack</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+@*<h4>Feedback</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FeedbackSubject" class="control-label"></label>
+                <input asp-for="FeedbackSubject" class="form-control" required />
+                <span asp-validation-for="FeedbackSubject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FeedbackContent" class="control-label"></label>
+                <input asp-for="FeedbackContent" class="form-control" required />
+                <span asp-validation-for="FeedbackContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEmail" class="control-label"></label>
+                <input asp-for="UserEmail" class="form-control" required />
+                <span asp-validation-for="UserEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="FeedbackDate" class="control-label"></label>
+                <input asp-for="FeedbackDate" class="form-control" />
+                <span asp-validation-for="FeedbackDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+

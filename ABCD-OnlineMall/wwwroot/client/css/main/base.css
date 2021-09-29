@@ -1,0 +1,205 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+    --primary-color: #ee4d2d;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #c3bebd;
+    --border-color: #393a3b;
+    --fontsize-footer-logo: 4.4rem;
+    --text-main-color: #867b78;
+    --text-black-color: #443b39;
+    --text-light: rgba(255, 255, 255, 0.6);
+    --text-lighter: rgba(255, 255, 255, 0.9);
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+    --width-container: 1200px;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    position: 0.5s;
+}
+
+* {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+.grid {
+    margin-left: -8px;
+    margin-right: -8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-3 {
+    width: 25%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+.heading-title {
+    text-align: center;
+}
+.heading-title-text {
+    font-size: 3rem;
+    text-transform:uppercase;
+    position: relative;
+}
+    .heading-title-text::before {
+        content: "";
+        position: absolute;
+        left: 60%;
+        right: 0;
+        top: 50%;
+        height: 3px;
+        background: #1a2a6c; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    .heading-title-text::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 60%;
+        top: 50%;
+        height: 3px;
+        background: #1a2a6c; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+.headingAll {
+    text-align: center;
+}
+
+.heading-main {
+    padding: 10px;
+    background-color: #f8b31a;
+    width: 290px;
+    position: relative;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+}
+
+    .heading-main::before {
+        content: "";
+        border-style: solid;
+        border-width: 23px 16px;
+        border-color: transparent transparent transparent var(--white-color);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
+
+    .heading-main::after {
+        content: "";
+        border-style: solid;
+        border-width: 23px 16px;
+        border-color: transparent transparent transparent #f8b31a;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        bottom: 0;
+    }
+
+/*Load page*/
+.centered-wrap {
+    background: #000;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.centered {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    filter: blur(10px) contrast(20);
+}
+
+.blob-1,
+.blob-2 {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blob-1 {
+    left: 20%;
+    animation: osc-l 2.5s ease infinite;
+}
+
+.blob-2 {
+    left: 80%;
+    animation: osc-r 2.5s ease infinite;
+    background: #0ff;
+}
+
+@keyframes osc-l {
+    0% {
+        left: 20%;
+    }
+
+    50% {
+        left: 50%;
+    }
+
+    100% {
+        left: 20%;
+    }
+}
+
+@keyframes osc-r {
+    0% {
+        left: 80%;
+    }
+
+    50% {
+        left: 50%;
+    }
+
+    100% {
+        left: 80%;
+    }
+}

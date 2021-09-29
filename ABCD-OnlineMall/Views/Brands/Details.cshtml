@@ -1,0 +1,132 @@
+﻿@model ABCD_OnlineMall.Models.Brand
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminIndex.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>
+                        Detail Brand : @Html.DisplayNameFor(model => model.BrandName)
+                    </h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Detail Brand</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BrandName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BrandUrl)
+
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ImageName)
+
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Store)
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.BrandName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.BrandUrl)
+                                        </td>
+                                        <td>
+                                            <img src="@Url.Content("~/"+Model.ImageName)" width="180" height="200" alt="Images" />
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Store.StoreId)
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <div style="margin-bottom: 1rem;">
+                <a asp-action="Edit" asp-route-id="@Model.BrandId">
+                    <div type="button" class="btn btn-primary">Edit Brand</div>
+                </a>
+
+                <a asp-action="Index">
+                    <div type="button" class="btn btn-info">Back to list</div>
+                </a>
+                <form asp-action="Delete" asp-route-id="@Model.BrandId" style="margin-top: 1rem;">
+                    <div class="form-group">
+                        <input hidden value="@Model.StoreId" name="storeid">
+                        <input onclick="return AreYouSure()" type="submit" value="Delete Brand" class="btn btn-danger" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    </div>
+    <div>
+        <h4>Brand</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BrandName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BrandName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BrandUrl)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BrandUrl)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ImageName)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@Url.Content("~/"+Model.ImageName)" width="180" height="200" alt="Images" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Store)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Store.StoreId)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.BrandId">Edit</a> |
+        <a asp-action="Delete" asp-route-id="@Model.BrandId">Delete</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>

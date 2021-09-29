@@ -1,0 +1,57 @@
+﻿@model ABCD_OnlineMall.Models.Admin
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminIndex.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Create Account</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Create</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form asp-action="Create">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label asp-for="AdminName"></label>
+                                    <input asp-for="AdminName" class="form-control" placeholder="Enter user name" required>
+                                    <span asp-validation-for="AdminName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="AdminPassword"></label>
+                                    <input asp-for="AdminPassword" class="form-control" placeholder="Enter password" required>
+                                    <span asp-validation-for="AdminPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+

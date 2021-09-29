@@ -1,0 +1,118 @@
+﻿@model ABCD_OnlineMall.Models.Feedback
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminIndex.cshtml";
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Detail FeedBack</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Detail FeedBack</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FeedbackSubject)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FeedbackContent)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.UserEmail)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FeedbackDate)
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.FeedbackSubject)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.FeedbackContent)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.UserEmail)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.FeedbackDate)
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <div>
+                        @*<a asp-action="Edit" asp-route-id="@Model.FeedbackId">
+                            <div class="btn btn-info">Edit</div>
+                        </a> |*@
+                        <a asp-action="Index">
+                            <div class="btn btn-link">Back to List</div>
+                        </a>
+                    </div>
+                </div>
+                <!-- /.col -->
+     
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+</div>
+
+    <div>
+        <h4>Feedback</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FeedbackSubject)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FeedbackSubject)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FeedbackContent)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FeedbackContent)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserEmail)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UserEmail)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FeedbackDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FeedbackDate)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.FeedbackId">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>

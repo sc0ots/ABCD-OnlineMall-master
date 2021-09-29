@@ -1,0 +1,93 @@
+﻿@model ABCD_OnlineMall.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminIndex.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Create Product</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Create</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form asp-action="Create" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label asp-for="ProductName"></label>
+                                    <input asp-for="ProductName" class="form-control" placeholder="Enter product name" required>
+                                    <span asp-validation-for="ProductName" class="text-danger"></span>
+
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="BrandId" class="control-label"></label>
+                                    <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId" required></select>
+                                    <span asp-validation-for="BrandId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    @{
+                                        List<SelectListItem> listItems = new List<SelectListItem>();
+                                        listItems.Add(new SelectListItem
+                                        {
+                                            Text = "Clothing",
+                                            Value = "Clothing",
+                                            Selected = true
+                                        });
+                                        listItems.Add(new SelectListItem
+                                        {
+                                            Text = "Food",
+                                            Value = "Food"
+
+                                        });
+                                        listItems.Add(new SelectListItem
+                                        {
+                                            Text = "Other",
+                                            Value = "Other"
+                                        });
+                                    }
+
+                                    @Html.DropDownListFor(model => model.Category, listItems, "-- Select Status --")
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="ImageName"></label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" asp-for="ImageFile" class="custom-file-input" value="" required>
+                                            <span asp-validation-for="ImageName" class="text-danger"></span>
+                                            <label class="custom-file-label" asp-for="ImageName"></label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

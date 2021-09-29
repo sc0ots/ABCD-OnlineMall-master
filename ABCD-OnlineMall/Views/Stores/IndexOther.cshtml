@@ -1,0 +1,112 @@
+﻿@model IEnumerable<ABCD_OnlineMall.Models.Store>
+
+@{
+    ViewData["Title"] = "IndexOther";
+}
+
+@section storecss{
+    <link href="~/client/css/store.css" rel="stylesheet" />
+}
+@section onload{ 
+    <script src="~/client/js/onload.js"></script>
+}
+
+<div class="store">
+    <div class="store-1200">
+        <div class="headingAll">
+            <h1 class="heading-main">Store Others</h1>
+        </div>
+        <div class="store-wrap">
+            <div class="grid">
+                @foreach (var item in Model)
+                {
+                    <div class="col-3">
+                        <a asp-controller="Plots" asp-action="StoreDetailsClient" asp-route-id="@item.StoreId" class="card card--effect-1">
+                            <div class="card-img"
+                                 style='background-image: url("/@item.ImageName");'>
+                            </div>
+                            <div class="card-more">
+                                <p class="card-text">More</p>
+                            </div>
+                        </a>
+                        <h1 class="card-name">
+                            @Html.DisplayFor(modelItem => item.StoreName)
+                        </h1>
+                        <p class="card-time">
+                            @Html.DisplayFor(modelItem => item.OpenTime)
+                            – @Html.DisplayFor(modelItem => item.CloseTime)
+                        </p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StoreName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OpenTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CloseTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.StoreAbout)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoreDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoreCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plot)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpenTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CloseTime)
+                </td>
+                <td>
+                    <a asp-controller="Plots" asp-action="StoreDetails" asp-route-id="@item.StoreId"><img src="~/@item.ImageName" width="120" height="80" alt="Images" /></a>
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreAbout)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Plot.PlotId)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>*@

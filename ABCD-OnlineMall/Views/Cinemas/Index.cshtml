@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ABCD_OnlineMall.Models.Cinema>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminIndex.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Index List Film</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">List Product in Store</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CinemaNo)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Movie)
+                                        </th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CinemaNo)
+                                            </td>
+                                            <td>
+                                                <a asp-action="MovieDetailsAdmin" asp-route-id="@item.MovieId">@Html.DisplayFor(modelItem => item.Movie.Title)</a>
+                                            </td>
+                                            <td>
+                                                @if (item.MovieId == null)
+                                                {
+                                                    <a asp-action="Create" asp-route-id="@item.CinemaId" class="btn btn-info">Add new movie</a>
+                                                }
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+</div>
+
+
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CinemaNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CinemaNo)
+                </td>
+                <td>
+                    <a asp-action="MovieDetailsAdmin" asp-route-id="@item.MovieId">@Html.DisplayFor(modelItem => item.Movie.MovieId)</a>
+                </td>
+                <td>
+                    @if (item.MovieId == null)
+                    {
+                        <a asp-action="Create" asp-route-id="@item.CinemaId">Add new movie</a>
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@

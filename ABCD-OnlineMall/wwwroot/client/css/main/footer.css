@@ -1,0 +1,131 @@
+﻿.footer {
+    background-color: #292929;
+    min-height: 358px;
+}
+
+.footer-wrap {
+    width: 1200px;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+
+.logo-footer-link {
+    text-decoration: none;
+}
+
+.logo-footer {
+    display: flex;
+    align-items: center;
+}
+
+.logo-footer-left {
+    color: var(--white-color);
+    font-size: var(--fontsize-footer-logo);
+}
+
+.logo-footer-right {
+    color: var(--primary-color);
+    font-size: var(--fontsize-footer-logo);
+}
+
+.footer-heading {
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.footer-list {
+    list-style-type: none;
+    margin-top: 16px;
+    padding-left: 0;
+}
+
+.footer-item {
+    font-size: 1.4rem;
+}
+
+.footer-item-link {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+    .footer-item-link:hover {
+        color: var(--primary-color);
+        transition: 0.3s;
+    }
+
+.footer-list-icon {
+    list-style-type: none;
+    display: flex;
+    margin-top: 16px;
+}
+
+.footer-item-icon {
+}
+
+.footer-item-icon-link {
+    text-decoration: none;
+    margin: 0 4px;
+}
+
+.footer-item-icon-img {
+    width: 30px;
+    border-radius: 50%;
+}
+
+    .footer-item-icon-img:hover {
+        position: relative;
+        top: -1px;
+        left: 0;
+        right: 0;
+        transition: 0.1s;
+    }
+
+.footer-border {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 50px;
+}
+
+.footer-text {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 30px;
+}
+
+.footer-heading-extra {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    padding: 10px 0;
+    margin-top: 16px;
+}
+
+.send-email {
+    display: flex;
+    padding: 10px 0;
+}
+
+.send-email-input {
+    padding: 8px 16px;
+    outline: none;
+    border-radius: 20px;
+    border: none;
+}
+
+.send-email-btn {
+    margin-left: 10px;
+    padding: 0 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    font-weight: bold;
+    color: #fff;
+}
+
+    .send-email-btn:hover {
+        background-color: rgba(238, 77, 45, 0.8);
+        cursor: pointer;
+        color: var(--text-color);
+    }

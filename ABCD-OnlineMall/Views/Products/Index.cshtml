@@ -1,0 +1,120 @@
+﻿@model IEnumerable<ABCD_OnlineMall.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section onload{
+    <script src="~/client/js/onload.js"></script>
+}
+@section productcss{
+    <link href="~/client/css/product.css" rel="stylesheet" />
+}
+<div class="band-wrap">
+    <div class="headingAll">
+        <h1 class="heading-main">Products</h1>
+    </div>
+    <form asp-controller="Products" asp-action="Index">
+        <div class="form-group-wrap">
+            <div class="form-group">
+                <select class="form-control" id="sel1" name="searchString">
+                    <option>Select category</option>
+                    <option>Clothing</option>
+                    <option>Food</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <input type="submit" value="Filter" class="form-submit" />
+        </div>
+    </form>
+
+    <div class="band">
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <a asp-controller="Products" asp-action="DetailsClient" asp-route-id="@item.ProductId"
+                   class="card">
+                    <div class="thumb"
+                         style="background-image: url(/@item.ImageName);">
+                    </div>
+                    <article>
+                        <h1>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </h1>
+                        <span>
+                            @Html.DisplayFor(modelItem => item.Category)
+                        </span>
+                    </article>
+                </a>
+            </div>
+        }
+    </div>
+ </div>
+    <script>
+        document.getElementsByClassName('item')[0].classList.add('item-1');
+    </script>
+
+
+    @*<p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <form asp-controller="Products" asp-action="Index">
+        <p>
+
+            <div class="form-group">
+                <label for="sel1">Category:</label>
+                <select class="form-control" id="sel1" name="searchString">
+                    <option></option>
+                    <option>Clothing</option>
+                    <option>Food</option>
+                    <option>Other</option>
+
+                </select>
+            </div>
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Brand)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Store)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <a asp-controller="Products" asp-action="DetailsClient" asp-route-id="@item.ProductId">
+                        <img src="~/@item.ImageName" width="120" height="80" alt="Images" />
+                    </a>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Brand.BrandId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Store.StoreId)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>*@

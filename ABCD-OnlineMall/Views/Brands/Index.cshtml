@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ABCD_OnlineMall.Models.Brand>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section onload{
+    <script src="~/client/js/onload.js"></script>
+}
+
+@section storecss{
+    <link href="~/client/css/store.css" rel="stylesheet" />
+}
+
+<div class="store">
+    <div class="store-1200">
+        <div class="heading-title">
+            <h1 class="heading-title-text">Brands</h1>
+        </div>
+        <div class="store-wrap" id="list-store">
+            <div class="grid">
+                @foreach (var item in Model)
+                {
+                    <div class="col-3">
+                        <a asp-controller="Brands" asp-action="DetailsClient" asp-route-id="@item.BrandId" class="card card--effect-1">
+                            <div class="card-img"
+                                 style='background-image: url("/@item.ImageName");'>
+                            </div>
+                            <div class="card-more">
+                                <p class="card-text">Detail</p>
+                            </div>
+                        </a>
+                        <h1 class="card-name">@Html.DisplayFor(modelItem => item.BrandName)</h1>
+                        <div class="card-time">
+                            <p class="time-string">
+                                <a style="text-decoration: none" href="@Html.DisplayFor(modelItem => item.BrandUrl)">
+                                    @Html.DisplayFor(modelItem => item.BrandUrl)
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Store)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandUrl)
+                </td>
+                <td>
+                    <img src="~/@item.ImageName" width="120" height="80" alt="Images" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Store.StoreId)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>*@

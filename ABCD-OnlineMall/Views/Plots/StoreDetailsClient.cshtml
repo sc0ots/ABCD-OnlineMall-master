@@ -1,0 +1,180 @@
+﻿@model ABCD_OnlineMall.Models.Sharemodel1
+
+@{
+    ViewData["Title"] = "StoreDetailsClient";
+}
+
+}
+@section detailcss{
+    <link href="~/client/css/detail.css" rel="stylesheet" />
+}
+@section onload{
+    <script src="~/client/js/onload.js"></script>
+}
+
+
+
+<div class="block">
+    <div class="detail">
+        <div class="detail-background">
+            <div class="grid" style="margin-bottom: 30px">
+                <div class="col-6">
+                    <div class="detail-header">
+                        <h1 class="detail-name-heading">
+                            @Html.DisplayFor(model => model.Stores.StoreName)
+                        </h1>
+                        <p class="detail-about">@Html.DisplayFor(model => model.Stores.StoreAbout)</p>
+                    </div>
+                    <div class="detail-all">
+                        <i class="far fa-clock" class="detail-all-icon"></i>
+                        <div src="" class="detail-all-text">Open/Close : @Html.DisplayFor(model => model.Stores.OpenTime) – @Html.DisplayFor(model => model.Stores.CloseTime)</div>
+                    </div>
+                    <div class="detail-all">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div src="" class="detail-all-text">Plot : @Html.DisplayFor(model => model.Stores.Plot.PlotId)</div>
+                    </div>
+                    <div class="detail-all">
+                        <i class="fas fa-bars"></i>
+                        <div src="" class="detail-all-text">Category : @Html.DisplayFor(model => model.Stores.StoreCategory)</div>
+                    </div>
+                    <h1 src="" class="detail-description-heading">Description :</h1>
+                    <p class="detail-description-text">
+                        @Html.DisplayFor(model => model.Stores.StoreDescription)
+                    </p>
+
+                </div>
+                <div class="col-6">
+                    <div class="detail-img-cover">
+                        <div class="detail-img">
+                            <img src="@Url.Content("~/"+Model.Stores.ImageName)" class="detail-img" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-promotion-img-left">
+                <div class="detail-promotion-img">
+                    <img src="@Url.Content("~/"+Model.Stores.PromoImageName)" class="detail-promotion-img" />
+                </div>
+            </div>
+            <div class="detail-promotion-img-right">
+                <div class="detail-promotion-img">
+                    <img src="@Url.Content("~/"+Model.Stores.PromoImageName)" class="detail-promotion-img" />
+                </div>
+            </div>
+            <div class="heading-title">
+                <h1 class="heading-title-text">Brands</h1>
+            </div>
+
+            <div class="carousel-wrap">
+                <div id="wrapper">
+                    <div id="carousel">
+                        <div id="content">
+                            @foreach (var item in Model.Brands)
+                            {
+                                <a asp-controller="Brands" asp-action="DetailsClient" asp-route-id="@item.BrandId" class="item-wrap">
+                                    <img class="item"
+                                         src="~/@item.ImageName" />
+                                    <p class="item-name">@Html.DisplayFor(modelItem => item.BrandName)</p>
+                                </a>
+                            }
+
+                        </div>
+                    </div>
+                    <button id="prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            @*<div class="list-product">
+                <div class="grid">
+                    @foreach (var item in Model.Brands)
+                    {
+                        <div class="col-3">
+                            <a asp-controller="Brands" asp-action="DetailsClient" asp-route-id="@item.BrandId" class="product-cover">
+                                <img class="product-img" src="~/@item.ImageName" />
+                                <h1 class="product-name">@Html.DisplayFor(modelItem => item.BrandName)</h1>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>*@
+            <div class="heading-title">
+                <h1 class="heading-title-text">Products</h1>
+            </div>
+            @*<div class="list-product">
+                <div class="grid">
+                    @foreach (var item in Model.Products)
+                    {
+                        <div class="col-3">
+                            <a asp-controller="Products" asp-action="DetailsClient" asp-route-id="@item.ProductId" class="product-cover">
+                                <img class="product-img" src="~/@item.ImageName" />
+                                <h1 class="product-name">@Html.DisplayFor(modelItem => item.ProductName)</h1>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>*@
+
+            <div class="carousel-wrap">
+                <div id="wrapper">
+                    <div id="carousel">
+                        <div id="content">
+                            @foreach (var item in Model.Products)
+                            {
+                                <a asp-controller="Products" asp-action="DetailsClient" asp-route-id="@item.ProductId" class="item-wrap">
+                                    <img class="item"
+                                         src="~/@item.ImageName" />
+                                    <p class="item-name">@Html.DisplayFor(modelItem => item.ProductName)</p>
+                                </a>
+                            }
+
+                        </div>
+                    </div>
+                    <button id="prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    const gap = 16;
+
+    const carousel = document.getElementById("carousel"),
+        content = document.getElementById("content"),
+        next = document.getElementById("next"),
+        prev = document.getElementById("prev");
+
+    next.addEventListener("click", e => {
+        carousel.scrollBy(width + gap, 0);
+        if (carousel.scrollWidth !== 0) {
+            prev.style.display = "flex";
+        }
+        if (content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+            next.style.display = "none";
+        }
+    });
+    prev.addEventListener("click", e => {
+        carousel.scrollBy(-(width + gap), 0);
+        if (carousel.scrollLeft - width - gap <= 0) {
+            prev.style.display = "none";
+        }
+        if (!content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+            next.style.display = "flex";
+        }
+    });
+
+    let width = carousel.offsetWidth;
+    window.addEventListener("resize", e => (width = carousel.offsetWidth));
+
+</script>
+
